@@ -7,10 +7,10 @@
         <authors>Octopus Deploy</authors>
         <owners>Octopus Deploy</owners>
         <contentFiles>
-            <files include=".\Amazon\AWSPS\**\" buildAction="None" copyToOutput="false" />
+            <files include="**" buildAction="None" copyToOutput="false" />
         </contentFiles>
     </metadata>
     <files>
-        <file src=".\Amazon\AWSPS\**\" target="AWSPS" />
+        <file src="**" target="AWSPS" />
     </files>
 </package>

@@ -92,7 +92,7 @@ Task("Pack")
     Information($"Building Octopus.Dependencies.AWSPS v{nugetVersion}");
     
     NuGetPack("awsps.nuspec", new NuGetPackSettings {
-        BasePath = Path.Combine(nugetVersion, unpackFolder),
+        BasePath = Path.Combine(unpackFolder, "AWSPowerShell", nugetVersion),
         OutputDirectory = artifactsDir,
         ArgumentCustomization = args => args.Append($"-Properties \"version={nugetVersion};subpackagename=AWSPS\"")
     });
