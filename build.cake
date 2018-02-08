@@ -56,8 +56,20 @@ Task("Clean")
 //     NuGetRestore("./src/Example.sln");
 // });
 
+Task("Install-NuGet-Provider")
+    .Does(() =>
+{
+    var processArgumentBuilder = new ProcessArgumentBuilder();
+    processArgumentBuilder.Append("-Command");
+    processArgumentBuilder.Append($"\"Install-PackageProvider -Name NuGet -RequiredVersion 2.8.5.201 -Force\"");
+    var processSettings = new ProcessSettings { Arguments = processArgumentBuilder, WorkingDirectory = buildDir };
+    StartProcess("powershell.exe", processSettings);
+    Information($"Saved module to {unpackFolderFullPath}");
+});
+
 Task("Unpack-Source-Package")
     .IsDependentOn("Clean")
+    .IsDependentOn("Install-NuGet-Provider")
     .Does(() => 
 {
     var processArgumentBuilder = new ProcessArgumentBuilder();
