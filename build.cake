@@ -57,6 +57,7 @@ Task("Clean")
 // });
 
 Task("Install-NuGet-Provider")
+    .WithCriteria(BuildSystem.IsRunningOnTeamCity)
     .Does(() =>
 {
     var processArgumentBuilder = new ProcessArgumentBuilder();
