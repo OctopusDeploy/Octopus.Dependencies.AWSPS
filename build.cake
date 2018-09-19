@@ -89,8 +89,8 @@ Task("GetVersion")
     Information(System.IO.Directory.GetCurrentDirectory());
 
     nugetVersion = new DirectoryInfo(unpackFolderFullPath)
-        .GetDirectories()[0] // AWSPowerShell
-        .GetDirectories()[0].Name; // The version
+                .GetDirectories()[0] // AWSPowerShell
+                .GetDirectories()[0].Name; // The version
 
     Information($"Calculated version number: {nugetVersion}");
 
@@ -109,6 +109,11 @@ Task("Pack")
         OutputDirectory = artifactsDir,
         ArgumentCustomization = args => args.Append($"-Properties \"version={nugetVersion};subpackagename=AWSPS\"")
     });
+
+    if (nugetVersion.EndsWith(".0")) {
+        // nuget drops trailing zeros
+        nugetVersion = string.Join(".", nugetVersion.Split('.').Take(3));
+    }
 });
 
 Task("Publish")
