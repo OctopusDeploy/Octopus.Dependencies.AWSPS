@@ -122,8 +122,8 @@ Task("Publish")
     .Does(() => 
 {
     NuGetPush($"{artifactsDir}/Octopus.Dependencies.AWSPS.{nugetVersion}.nupkg", new NuGetPushSettings {
-        Source = "https://octopus.myget.org/F/octopus-dependencies/api/v3/index.json",
-        ApiKey = EnvironmentVariable("MyGetApiKey")
+        Source = "https://f.feedz.io/octopus-deploy/dependencies/nuget",
+        ApiKey = EnvironmentVariable("FeedzIoApiKey")
     });
 });
 
