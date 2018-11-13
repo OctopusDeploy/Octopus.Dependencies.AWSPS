@@ -6,6 +6,8 @@
         <description>Nuget Package of AWS PowerShell Modules</description>
         <authors>Octopus Deploy</authors>
         <owners>Octopus Deploy</owners>
+        <licenseUrl>https://github.com/OctopusDeploy/Octopus.Dependencies.AWSPS/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/OctopusDeploy/Octopus.Dependencies.AWSPS</projectUrl>
         <contentFiles>
             <files include="**" buildAction="None" copyToOutput="false" />
         </contentFiles>
