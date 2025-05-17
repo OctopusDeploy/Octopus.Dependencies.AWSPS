@@ -8,7 +8,9 @@ We reccomend following the [official AWS guides](https://docs.aws.amazon.com/pow
 Since this installation uses the built in PowerShell commands, you may require Administrator Rights to perform.
 
 ### Installing Globally
+Installing the module globally will ensure that it is available for use by Octopus deployment processes.
 
+We reccomend installing AWSPowerShell on your target via this method to avoid relying on downloading it on every step invocation as described in the `Installation to Deployment Session` option below.
 
 ```PowerShell
 Install-Module -Name AWSPowerShell
@@ -16,7 +18,6 @@ Install-Module -Name AWSPowerShell
 # Uninstall using the below
 # Uninstall-Module -Name AWSPowerShell -AllVersions
 ```
-We reccomend installing AWSPowerShell on your target to avoid relying on downloading it on every step invocation as described in the `Installation to Deployment Session` option below.
 
 ### Installation to Deployment Session
 If you are unable to install AWSPowerShell on your target directly, you may be able to include the below script directly into the top of your Octopus AWS Script Step.
